@@ -7,5 +7,7 @@ services:
       - 53:53/udp
   bedrock-connect:
     build: .
+    volumes:
+      - ./custom_servers.json:/docker/brc/custom_servers.json:ro
     ports:
       - 19132:19132/udp
