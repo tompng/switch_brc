@@ -1,0 +1,11 @@
+services:
+  unbound:
+    image: mvance/unbound:latest
+    volumes:
+      - ./a-records.conf:/opt/unbound/etc/unbound/a-records.conf:ro
+    ports:
+      - 53:53/udp
+  bedrock-connect:
+    build: .
+    ports:
+      - 19132:19132/udp
