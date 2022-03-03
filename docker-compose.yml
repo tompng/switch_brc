@@ -15,3 +15,19 @@ services:
     build: ./wrtc_tunnel
     ports:
       - 19131:19131/udp
+
+  bedrock-server:
+    restart: always
+    image: itzg/minecraft-bedrock-server:latest
+    environment:
+      SERVER_NAME: SERVER1
+      EULA: "TRUE"
+      GAMEMODE: survival
+      DIFFICULTY: normal
+      LEVEL_NAME: MY CREATIVE
+    ports:
+      - 19133:19132/udp
+    volumes:
+      - ./data:/data
+    stdin_open: true
+    tty: true
